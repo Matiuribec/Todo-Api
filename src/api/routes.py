@@ -30,9 +30,9 @@ def get_todos(user_param):
 def post_todos(user_param):
     label = request.json.get("label")
     done = request.json.get("done")
-    # newTodo = Todos(user_id=user_param, label=label, done=done) #el Todos es lo que estoy importando desde arriba, de models
-    # db.session.add(newTodo)#con el db session lo que hago es que lo agrego a la base de datos al newTodo  
-    # db.session.commit()
+    newTodo = Todos(user_id=user_param, label=label, done=done) #el Todos es lo que estoy importando desde arriba, de models
+    db.session.add(newTodo)#con el db session lo que hago es que lo agrego a la base de datos al newTodo  
+    db.session.commit()
 
     return jsonify ({"resp": "todo creado con exito"}), 201
 
